@@ -1,3 +1,8 @@
+---
+import { Image } from "astro:assets"
+import hero from "../../public/hero.webp"
+---
+
 <container class="text-white flex justify-center items-center flex-col">
   <div class="grid grid-cols-1 md:grid-cols-2 gap-16 mt-48">
     <div>
@@ -18,7 +23,7 @@
       </div>
     </div>
     <div>
-      <img src="/hero.webp" class="rounded-xl" alt="Hero" />
+      <Image src={hero} class="rounded-xl" loading="lazy" alt="Hero" />
     </div>
   </div>
 </container>
