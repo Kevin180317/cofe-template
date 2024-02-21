@@ -1,0 +1,17 @@
+---
+const images = ['/image1.webp', '/image2.webp', '/image6.webp', '/image14.webp'];
+---
+
+<main class="flex justify-center items-center mt-48">
+  <section class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16">
+    {
+      images.map((image, index) => (
+        <img
+          src={image}
+          alt={`Imagen ${index + 1}`}
+          class="size-[500px] rounded-3xl transition-transform duration-300 ease-in-out transform hover:scale-110"
+        />
+      ))
+    }
+  </section>
+</main>
