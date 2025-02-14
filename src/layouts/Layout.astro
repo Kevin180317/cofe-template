@@ -1,0 +1,48 @@
+---
+// Supports weights 100-900
+import "@fontsource-variable/outfit";
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Bienvenido a nuestra tienda de café. Ofrecemos café de alta calidad, cultivado de manera sostenible. Ven y disfruta de nuestros exclusivos sabores de café en un ambiente acogedor."
+    />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+  <hr class="border border-white w-full" />
+
+  <footer
+    class="text-white bg-black text-xl flex justify-center items-center py-16"
+  >
+    <p>
+      © 2024 Coffee Roasters, Developed by{" "}
+      <a
+        href="https://www.prometheustij.com"
+        class="hover:text-blue-500 hover:underline"
+        target="_blank"
+      >
+        PrometheusTij
+      </a>
+    </p>
+  </footer>
+</html>
+<style is:global>
+  body {
+    font-family: "Outfit Variable", sans-serif;
+  }
+</style>

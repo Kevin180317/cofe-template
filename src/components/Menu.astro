@@ -1,0 +1,91 @@
+---
+interface MenuItem {
+  id: number;
+  type: string;
+  items: { name: string; icon: string }[];
+}
+
+const menu: MenuItem[] = [
+  {
+    id: 1,
+    type: "Hot Coffees",
+    items: [
+      {
+        name: "Cafe americano",
+        icon: "https://max-themes.net/demos/craft/upload/f12bc8af498d45ed92c5d6f1dac64062_result-150x150.jpg",
+      },
+      {
+        name: "Cappuccino",
+        icon: "https://max-themes.net/demos/craft/upload/5c515339667943ce84dc56effdf5fc1b_result-150x150.jpg",
+      },
+      {
+        name: "Expresso",
+        icon: "https://max-themes.net/demos/craft/upload/ec519dd5642c41629194192cce582135_result-150x150.jpg",
+      },
+      {
+        name: "Caramel macchiato",
+        icon: "https://max-themes.net/demos/craft/upload/58db701349cb48738069e8c912e2b3ac_result-150x150.jpg",
+      },
+      {
+        name: "Caffe mocha",
+        icon: "https://max-themes.net/demos/craft/upload/f4ec500b34624242b15c2d29e53f3c48_result-150x150.jpg",
+      },
+    ],
+  },
+  {
+    id: 2,
+    type: "Cold Coffees",
+    items: [
+      { name: "Iced Coffee", icon: "" },
+      { name: "Cold Brew", icon: "" },
+      { name: "Iced Latte", icon: "" },
+      { name: "Iced Mocha", icon: "" },
+      { name: "Frappuccino", icon: "" },
+    ],
+  },
+  {
+    id: 3,
+    type: "Bakery",
+    items: [
+      { name: "Croissant", icon: "" },
+      { name: "Muffin", icon: "" },
+      { name: "Bagel", icon: "" },
+      { name: "Scone", icon: "" },
+      { name: "Danish", icon: "" },
+    ],
+  },
+  {
+    id: 4,
+    type: "Lunch",
+    items: [
+      { name: "Sandwich", icon: "" },
+      { name: "Salad", icon: "" },
+      { name: "Soup", icon: "" },
+      { name: "Panini", icon: "" },
+      { name: "Wrap", icon: "" },
+    ],
+  },
+];
+---
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 container mx-auto">
+  {
+    menu.map((category) => (
+      <div class="p-4 border rounded-lg shadow-md">
+        <h2 class="text-3xl font-semibold mb-2 uppercase">{category.type}</h2>
+        <ul class="list-disc list-inside">
+          {category.items.map((item) => (
+            <li class="text-lg flex items-center">
+              <img
+                src={item.icon}
+                alt={item.name}
+                class="w-12 h-12 rounded-3xl mr-2"
+              />
+              <p class="uppercase font-bold">{item.name}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))
+  }
+</div>
