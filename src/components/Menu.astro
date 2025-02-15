@@ -2,7 +2,7 @@
 interface MenuItem {
   id: number;
   type: string;
-  items: { name: string; icon: string }[];
+  items: { name: string; icon: string; price: number; desc: string }[];
 }
 
 const menu: MenuItem[] = [
@@ -13,22 +13,32 @@ const menu: MenuItem[] = [
       {
         name: "Cafe americano",
         icon: "https://max-themes.net/demos/craft/upload/f12bc8af498d45ed92c5d6f1dac64062_result-150x150.jpg",
+        price: 9,
+        desc: "Espresso shots topped with hot water",
       },
       {
         name: "Cappuccino",
         icon: "https://max-themes.net/demos/craft/upload/5c515339667943ce84dc56effdf5fc1b_result-150x150.jpg",
+        price: 9,
+        desc: "Dark espresso lies in wait under milk foam",
       },
       {
         name: "Expresso",
         icon: "https://max-themes.net/demos/craft/upload/ec519dd5642c41629194192cce582135_result-150x150.jpg",
+        price: 5,
+        desc: "Signature Espresso Roast with rich flavor",
       },
       {
         name: "Caramel macchiato",
         icon: "https://max-themes.net/demos/craft/upload/58db701349cb48738069e8c912e2b3ac_result-150x150.jpg",
+        price: 9,
+        desc: "Freshly steamed milk with vanilla-flavored syrup",
       },
       {
         name: "Caffe mocha",
         icon: "https://max-themes.net/demos/craft/upload/f4ec500b34624242b15c2d29e53f3c48_result-150x150.jpg",
+        price: 7,
+        desc: "Full-bodied espresso combined with mocha",
       },
     ],
   },
@@ -36,56 +46,136 @@ const menu: MenuItem[] = [
     id: 2,
     type: "Cold Coffees",
     items: [
-      { name: "Iced Coffee", icon: "" },
-      { name: "Cold Brew", icon: "" },
-      { name: "Iced Latte", icon: "" },
-      { name: "Iced Mocha", icon: "" },
-      { name: "Frappuccino", icon: "" },
+      {
+        name: "Iced Coffee with Milk",
+        icon: "https://max-themes.net/demos/craft/upload/cc9b573f8c1b43cd89cdab08ae5b9ec7_result_result-150x150.jpg",
+        price: 9,
+        desc: "Iced Coffee Blend with milk served chilled",
+      },
+      {
+        name: "Iced Espresso",
+        icon: "https://max-themes.net/demos/craft/upload/2c626225a4804e5abd8e93e7fd59a0a2_result-150x150.jpg",
+        price: 9,
+        desc: "Smooth signature Espresso Roast over ice boasts",
+      },
+      {
+        name: "Iced Caramel Macchiato",
+        icon: "https://max-themes.net/demos/craft/upload/808f9ef590cb465ebfd24abc7f6c773e_result-150x150.jpg",
+        price: 7,
+        desc: "Signature caramel crosshatch and a mocha drizzle",
+      },
+      {
+        name: "Flat Milk",
+        icon: "https://max-themes.net/demos/craft/upload/55f0ad4429524eb1ba24ed83a7127e12_result-150x150.jpg",
+        price: 9,
+        desc: "Fresh brewed coffee and steamed milk",
+      },
+      {
+        name: "Iced Latte",
+        icon: "https://max-themes.net/demos/craft/upload/2a7651bc593044ba9043e90ddc20e3f1_result-150x150.jpg",
+        price: 6,
+        desc: "Signature espresso are intentionally combined over ice",
+      },
     ],
   },
   {
     id: 3,
     type: "Bakery",
     items: [
-      { name: "Croissant", icon: "" },
-      { name: "Muffin", icon: "" },
-      { name: "Bagel", icon: "" },
-      { name: "Scone", icon: "" },
-      { name: "Danish", icon: "" },
+      {
+        name: "Butter Croissant",
+        icon: "https://max-themes.net/demos/craft/upload/e39e1d6044634535a027301d982c5842_result-150x150.jpg",
+        price: 9,
+        desc: "Classic croissant is made with real butter",
+      },
+      {
+        name: "Chocolate Brownie",
+        icon: "https://max-themes.net/demos/craft/upload/4256a71a589b4d8bb5d92f967e548522_result-150x150.jpg",
+        price: 5,
+        desc: "Rich chocolate brownie with chunks of chocolate",
+      },
+      {
+        name: "Blueberry Scone",
+        icon: "https://max-themes.net/demos/craft/upload/be269a8f32c14f0cb58b81a50d1d100e_result-150x150.jpg",
+        price: 5,
+        desc: "A traditional scone with blueberries, buttermilk",
+      },
     ],
   },
   {
     id: 4,
     type: "Lunch",
     items: [
-      { name: "Sandwich", icon: "" },
-      { name: "Salad", icon: "" },
-      { name: "Soup", icon: "" },
-      { name: "Panini", icon: "" },
-      { name: "Wrap", icon: "" },
+      {
+        name: "Chicken Sandwitches",
+        icon: "https://max-themes.net/demos/craft/upload/113e06e87211480689383143d8d8b96b_result-150x150.jpg",
+        price: 15,
+        desc: "White-meat chicken, veggie slaw, cucumber, cilantro",
+      },
+      {
+        name: "Lunch Box",
+        icon: "https://max-themes.net/demos/craft/upload/41f2b8737c4e4ecabf507fa71599ad6e_result-150x150.jpg",
+        price: 18,
+        desc: "Tender and juicy sous vide grilled chicken breast paired with roasted red pepper",
+      },
+      {
+        name: "Chicken Wrap",
+        icon: "https://max-themes.net/demos/craft/upload/31d1cce5b8fd496daeadb8470de3badd-150x150.jpg",
+        price: 18,
+        desc: "Grilled white chicken, peanut-coconut sauce, chile-lime slaw and ginger cream cheese",
+      },
     ],
   },
 ];
 ---
 
-<div class="grid grid-cols-1 md:grid-cols-2 gap-4 container mx-auto">
-  {
-    menu.map((category) => (
-      <div class="p-4 border rounded-lg shadow-md">
-        <h2 class="text-3xl font-semibold mb-2 uppercase">{category.type}</h2>
-        <ul class="list-disc list-inside">
-          {category.items.map((item) => (
-            <li class="text-lg flex items-center">
-              <img
-                src={item.icon}
-                alt={item.name}
-                class="w-12 h-12 rounded-3xl mr-2"
-              />
-              <p class="uppercase font-bold">{item.name}</p>
-            </li>
-          ))}
-        </ul>
-      </div>
-    ))
+<section>
+  <h1 class="text-4xl font-semibold text-center mt-8 p-8">OUR MENU</h1>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 container mx-auto">
+    {
+      menu.map((category) => (
+        <div class="p-4 border rounded-lg shadow-md">
+          <h2 class="text-3xl font-semibold mb-2 uppercase">{category.type}</h2>
+          <ul class="list-disc list-inside">
+            {category.items.map((item) => (
+              <li class="text-lg flex items-center p-2 max-w-full">
+                <div class="flex items-center justify-center">
+                  <img
+                    src={item.icon}
+                    alt={item.name}
+                    class="w-20 h-20 rounded-full mr-2"
+                  />
+                </div>
+                <div class="flex-col items-center justify-center w-full">
+                  <div class="flex justify-between items-center">
+                    <p class="uppercase font-bold horizontal_dotted_line items-baseline">
+                      {item.name}
+                    </p>
+                    <p class="uppercase font-bold">${item.price}</p>
+                  </div>
+                  <div class="flex justify-start items-center">
+                    <p>{item.desc}</p>
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .horizontal_dotted_line {
+    display: flex;
+    width: 100%;
+    padding: 5px;
   }
-</div>
+  .horizontal_dotted_line:after {
+    border-bottom: 4px dotted black;
+    content: "";
+    flex: 1;
+  }
+</style>
