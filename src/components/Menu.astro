@@ -129,41 +129,52 @@ const menu: MenuItem[] = [
 ];
 ---
 
-<section>
-  <h1 class="text-4xl font-semibold text-center mt-8 p-8">OUR MENU</h1>
+<section class="bg-[#f9f4ea] relative">
+  <!-- imagenes de fondo -->
+  <img
+    src="https://max-themes.net/demos/craft/upload/coffee-bg-2-e1592389807271.png"
+    alt=""
+    class="absolute left-0 top-0"
+  />
 
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 container mx-auto">
-    {
-      menu.map((category) => (
-        <div class="p-4 border rounded-lg shadow-md">
-          <h2 class="text-3xl font-semibold mb-2 uppercase">{category.type}</h2>
-          <ul class="list-disc list-inside">
-            {category.items.map((item) => (
-              <li class="text-lg flex items-center p-2 max-w-full">
-                <div class="flex items-center justify-center">
-                  <img
-                    src={item.icon}
-                    alt={item.name}
-                    class="w-20 h-20 rounded-full mr-2"
-                  />
-                </div>
-                <div class="flex-col items-center justify-center w-full">
-                  <div class="flex justify-between items-center">
-                    <p class="uppercase font-bold horizontal_dotted_line items-baseline">
-                      {item.name}
-                    </p>
-                    <p class="uppercase font-bold">${item.price}</p>
+  <div>
+    <h1 class="text-4xl font-semibold text-center p-8 pt-40">OUR MENU</h1>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 container mx-auto">
+      {
+        menu.map((category) => (
+          <div class="p-4 border rounded-lg shadow-md">
+            <h2 class="text-3xl font-semibold mb-2 uppercase">
+              {category.type}
+            </h2>
+            <ul class="list-disc list-inside">
+              {category.items.map((item) => (
+                <li class="text-lg flex items-center p-2 max-w-full">
+                  <div class="flex items-center justify-center">
+                    <img
+                      src={item.icon}
+                      alt={item.name}
+                      class="w-20 h-20 rounded-full mr-2"
+                    />
                   </div>
-                  <div class="flex justify-start items-center">
-                    <p>{item.desc}</p>
+                  <div class="flex-col items-center justify-center w-full">
+                    <div class="flex justify-between items-center">
+                      <p class="uppercase font-bold horizontal_dotted_line items-baseline">
+                        {item.name}
+                      </p>
+                      <p class="uppercase font-bold">${item.price}</p>
+                    </div>
+                    <div class="flex justify-start items-center">
+                      <p>{item.desc}</p>
+                    </div>
                   </div>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))
-    }
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
   </div>
 </section>
 

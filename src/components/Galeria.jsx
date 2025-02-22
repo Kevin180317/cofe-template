@@ -32,7 +32,7 @@ const Galeria = () => {
   };
 
   return (
-    <div className="flex justify-center items-center p-8">
+    <div className="flex justify-center items-center p-8 bg-[#f9f4ea] ">
       <button
         onClick={handlePrev}
         className="p-2 bg-gray-300 rounded-full mr-4 hover:bg-gray-400 transition"
