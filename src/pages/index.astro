@@ -9,10 +9,12 @@ import About from "../components/About.astro";
 ---
 
 <Layout title="Café Cerro de la Tortuga">
-  <Hero />
-  <About />
-  <Menu />
-  <Galeria client:visible />
-  <Historia />
-  <Horario />
+  <div class="overflow-x-hidden">
+    <Hero />
+    <About />
+    <Menu />
+    <Galeria client:visible />
+    <Historia />
+    <Horario />
+  </div>
 </Layout>
